@@ -6,10 +6,10 @@ import os
 USAGE =                 'Usage: littledoctor.py [survivor_name] [place_to_run] [start_value] [end_value] [step]'
 FASM_PATH =             os.path.dirname(__file__)+'.\\fasm'
 COREWARS_SCORES_PATH =  os.path.dirname(__file__)+'.\\special8086\\scores.csv'
-KYRIL_SCORES_PATH =     os.path.dirname(__file__)+'.\\even_better_kyril\\scores.csv'
+# KYRIL_SCORES_PATH =     os.path.dirname(__file__)+'.\\even_better_kyril\\scores.csv'
 OPTIM_SCORES_PATH =     os.path.dirname(__file__)+'.\\optim_scores.csv'
 DOSBOX_PATH =           os.path.dirname(__file__)+'.\\DOSBoxPortable'
-KYRIL_PATH =            os.path.dirname(__file__)+'.\\kyril\\survivors'
+# KYRIL_PATH =            os.path.dirname(__file__)+'.\\kyril\\survivors'
 COREWARS_PATH =         os.path.dirname(__file__)+'.\\special8086\\survivors'
 max_score =             0
 max_line =              ''
@@ -100,10 +100,10 @@ def create_survivor(survivor_name,place):
     
     fasm_survivor(survivor_name)
     
-    if place == "kyril":
-        copy_survivor(survivor_name , KYRIL_PATH)
+    # if place == "kyril":
+        # copy_survivor(survivor_name , KYRIL_PATH)
         
-    elif place == "corewars":
+    if place == "corewars":
         copy_survivor(survivor_name , COREWARS_PATH)
         
     else:
@@ -112,11 +112,11 @@ def create_survivor(survivor_name,place):
 
 def run_game(game):
     
-    if game=="kyril":
-        os.chdir(os.path.dirname(__file__)+'.\\kyril')
-        os.system('nightly12_02_14.jar')
+    # if game=="kyril":
+        # os.chdir(os.path.dirname(__file__)+'.\\kyril')
+        # os.system('nightly12_02_14.jar')
         
-    elif game=="corewars":
+    if game=="corewars":
         os.chdir(os.path.dirname(__file__)+'.\\special8086')
         os.system('corewars.jar')
 
@@ -166,8 +166,8 @@ for x in range(start_value, end_value, step):
     
     if place=='corewars':
         survivor_row=read_scores(COREWARS_SCORES_PATH, survivor_name)
-    elif place=='kyril':
-        survivor_row=read_scores(KYRIL_SCORES_PATH, survivor_name)
+    # elif place=='kyril':
+        # survivor_row=read_scores(KYRIL_SCORES_PATH, survivor_name)
 
     print '%s scored %s in the this game\n' % (survivor_name, survivor_row[1])
     
