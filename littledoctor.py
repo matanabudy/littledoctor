@@ -5,14 +5,14 @@ import csv
 import shutil
 import os
 
-USAGE =                 'Usage: doctor.py [survivor_name] [place_to_run] [start_value] [end_value] [step]'
-FASM_PATH =             os.path.dirname(__file__)+'./fasm'
-COREWARS_SCORES_PATH =  os.path.dirname(__file__)+'./special8086/scores.csv'
-KYRIL_SCORES_PATH =     os.path.dirname(__file__)+'./even_better_kyril/scores.csv'
-OPTIM_SCORES_PATH =     os.path.dirname(__file__)+'./optim_scores.csv'
-DOSBOX_PATH =           os.path.dirname(__file__)+'./DOSBoxPortable'
-KYRIL_PATH =            os.path.dirname(__file__)+'./even_better_kyril/survivors'
-COREWARS_PATH =         os.path.dirname(__file__)+'./special8086/survivors'
+USAGE =                 'Usage: littledoctor.py [survivor_name] [place_to_run] [start_value] [end_value] [step]'
+FASM_PATH =             os.path.dirname(__file__)+'.\\fasm'
+COREWARS_SCORES_PATH =  os.path.dirname(__file__)+'.\\special8086\\scores.csv'
+KYRIL_SCORES_PATH =     os.path.dirname(__file__)+'.\\even_better_kyril\\scores.csv'
+OPTIM_SCORES_PATH =     os.path.dirname(__file__)+'.\\optim_scores.csv'
+DOSBOX_PATH =           os.path.dirname(__file__)+'.\\DOSBoxPortable'
+KYRIL_PATH =            os.path.dirname(__file__)+'.\\kyril\\survivors'
+COREWARS_PATH =         os.path.dirname(__file__)+'.\\special8086\\survivors'
 max_score =             0
 max_line =              ''
 all_times_max =         0
@@ -115,11 +115,11 @@ def create_survivor(survivor_name,place):
 def run_game(game):
     
     if game=="kyril":
-        os.chdir(os.path.dirname(__file__)+'./even_better_kyril')
+        os.chdir(os.path.dirname(__file__)+'.\\kyril')
         os.system('nightly12_02_14.jar')
         
     elif game=="corewars":
-        os.chdir(os.path.dirname(__file__)+'./special8086')
+        os.chdir(os.path.dirname(__file__)+'.\\special8086')
         os.system('corewars.jar')
 
 if  (len(sys.argv)<5):
@@ -129,8 +129,8 @@ if  (len(sys.argv)<5):
 survivor_name = sys.argv[1].upper()
 place = sys.argv[2]
 
-survivor1_path = FASM_PATH+'/%s1.asm' % (survivor_name)
-survivor2_path = FASM_PATH+'/%s2.asm' % (survivor_name)
+survivor1_path = FASM_PATH+'\\%s1.asm' % (survivor_name)
+survivor2_path = FASM_PATH+'\\%s2.asm' % (survivor_name)
 
 start_value = int(sys.argv[3], 16)
 end_value = int(sys.argv[4], 16)
