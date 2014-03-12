@@ -1,5 +1,3 @@
-import csv_handle
-import optimize
 import sys
 import csv
 import shutil
