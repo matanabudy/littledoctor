@@ -3,7 +3,7 @@ import csv
 import shutil
 import os
 
-USAGE =                 'Usage: littledoctor.py [survivor_name] [place_to_run] [start_value] [end_value] [step]'
+USAGE =                 'Usage: littledoctor.py [survivor_name] [start_value] [end_value] [step]'
 FASM_PATH =             os.path.dirname(__file__)+'.\\fasm'
 COREWARS_SCORES_PATH =  os.path.dirname(__file__)+'.\\special8086\\scores.csv'
 # KYRIL_SCORES_PATH =     os.path.dirname(__file__)+'.\\even_better_kyril\\scores.csv'
@@ -125,15 +125,14 @@ if  (len(sys.argv)<5):
     sys.exit(0)
     
 survivor_name = sys.argv[1].upper()
-place = sys.argv[2]
 
 survivor1_path = FASM_PATH+'\\%s1.asm' % (survivor_name)
 survivor2_path = FASM_PATH+'\\%s2.asm' % (survivor_name)
 
-start_value = int(sys.argv[3], 16)
-end_value = int(sys.argv[4], 16)
+start_value = int(sys.argv[2], 16)
+end_value = int(sys.argv[3], 16)
 
-step = int(sys.argv[5])
+step = int(sys.argv[4])
 
 print 'Welcome to The Doctor!\n'
 
